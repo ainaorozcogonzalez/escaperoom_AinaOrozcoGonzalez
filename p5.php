@@ -33,22 +33,29 @@ if (isset($_POST['respuesta'])) {
 <head>
     <meta charset="UTF-8">
     <title>Pregunta de informática</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-<h1>Pregunta de informática</h1>
-<form method="post">
-    <p><?php echo $pregunta; ?></p>
-    <input type="radio" name="respuesta" value="A" id="opcionA">
-    <label for="opcionA"><?php echo $opcionA; ?></label><br>
-    <input type="radio" name="respuesta" value="B" id="opcionB">
-    <label for="opcionB"><?php echo $opcionB; ?></label><br>
-    <input type="radio" name="respuesta" value="C" id="opcionC">
-    <label for="opcionC"><?php echo $opcionC; ?></label><br>
-    <input type="radio" name="respuesta" value="D" id="opcionD">
-    <label for="opcionD"><?php echo $opcionD; ?></label><br>
-    <button type="submit">Enviar respuesta</button>
-</form>
+<div class="container">
+    <div class='texto'>
+        <h1>¿Otra vez? ¡Qué pesadilla!</h1>
+        </br>
+        <form method="post">
+            <p><?php echo $pregunta; ?></p>
+            </br>
+            <input type="radio" name="respuesta" value="A" id="opcionA">
+            <label for="opcionA"><?php echo $opcionA; ?></label><br>
+            <input type="radio" name="respuesta" value="B" id="opcionB">
+            <label for="opcionB"><?php echo $opcionB; ?></label><br>
+            <input type="radio" name="respuesta" value="C" id="opcionC">
+            <label for="opcionC"><?php echo $opcionC; ?></label><br>
+            <input type="radio" name="respuesta" value="D" id="opcionD">
+            <label for="opcionD"><?php echo $opcionD; ?></label><br>
+            </br>
+            <button type="submit">Enviar respuesta</button>
+        </form>
+    </div>
+</div> 
 <?php
 // Si el usuario ha enviado una respuesta incorrecta, mostramos la pista
 if (isset($pista)) {
@@ -56,5 +63,11 @@ if (isset($pista)) {
 }
 ?>
 </body>
-<script src="script.js"></script>
+<script src="./js/script.js"></script>
 </html>
+<style type="text/css">
+	body {
+		background-image: url('./img/visual.jpg');
+		background-size: cover;
+	}
+</style>

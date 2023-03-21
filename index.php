@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Escape Room - Dentro del Ordenador</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
   </head>
   <body>
     <video autoplay muted loop>
-      <source src="actualiza.mp4" type="video/mp4">
+      <source src="video/actualiza.mp4" type="video/mp4">
     </video>
     <div id="modal" class="modal">
       <div class="modal-content">
@@ -23,17 +23,20 @@
 
     <?php
     // En vez de utilizar ventanas emergentes, agregué un mensaje de error en un div oculto para mostrarlo con JavaScript cuando sea necesario
-    if (isset($_GET['error'])) {
-      $errorMessage = "";
-      if ($_GET['error'] == 1) {
-        $errorMessage = "No has introducido un nombre";
-      } elseif ($_GET['error'] == 2) {
-        $errorMessage = "No puedes ir sin iniciar sesion";
-      }
-      echo '<div id="error-message">' . $errorMessage . '</div>';
+    if (isset($_GET['error']) && $_GET['error'] == 1) {
+      echo'<script type="text/javascript">
+      alert("No continuar sin introducir tu nombre");
+      window.location.href="index.php";
+      </script>';
+    }
+    if (isset($_GET['error']) && $_GET['error'] == 2) {
+      echo'<script type="text/javascript">
+      alert("No puedes ir sin iniciar sesion");
+      window.location.href="index.php";
+      </script>';
     }
     ?>
 
-    <script src="script.js"></script>
+    <script src="./js/script.js"></script>
   </body>
 </html>

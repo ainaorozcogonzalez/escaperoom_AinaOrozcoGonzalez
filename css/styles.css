@@ -1,0 +1,205 @@
+/* Estilos generales */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+  }
+  
+  body {
+	font-family: sans-serif;
+	font-size: 16px;
+  }
+  
+  .container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh; /* Agregamos una altura del 100% del viewport */
+  }
+  
+  
+  /* Estilos para el video */
+  video {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1;
+	transform: translate(-50%, -50%);
+  }
+  
+  /* Estilos para el texto del juego */
+  .texto-juego {
+	font-family: "Lucida Console", Monaco, monospace;
+	color: white;
+	text-align: center;
+	font-size: 50px;
+	margin-top: 30px;
+  }
+  .texto {
+	color: white;
+  }
+  
+  /* Estilos para los formularios */
+  .formulario {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 50px;
+  }
+  
+  .formulario input[type=text] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	border-radius: 5px;
+	font-size: 16px;
+  }
+  
+  .btn {
+	background-color: #f44336;
+	color: white;
+	border: none;
+	border-radius: 25px; /* aumentamos el radio del borde para hacerlo más redondeado */
+	padding: 10px 25px; /* ajustamos el padding para que tenga una proporción agradable */
+	font-size: 16px;
+	font-weight: bold;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	margin-top: 20px;
+  }
+  
+  .btn:hover {
+	background-color: #c62828;
+	box-shadow: 0px 2px 10px rgba(0,0,0,0.2); /* agregamos una sombra al hacer hover para dar una sensación de profundidad */
+  }
+  
+  
+  /* Estilos para la ventana modal */
+  .modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Estilos para el contenido de la ventana modal */
+  .modal-content {
+	background-color: #f44336;
+	color: white;
+	margin: 10% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	max-width: 500px; /* Agregamos un valor máximo de ancho */
+	animation: typing 4s steps(50) 1s forwards;
+	font-size: 32px; /* Ajustamos el tamaño de la letra */
+	border-radius: 5px;
+  }
+  
+/* Estilos para el botón de cierre de la ventana modal */
+.close {
+	color: #aaa;
+	font-size: 28px;
+	font-weight: bold;
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	transition: color 0.3s ease;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: #fff;
+  }
+  
+  /* Estilos para el formulario de las preguntas */
+  .formulario-pregunta {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 50px;
+	height: 400px;
+  }
+  
+  .formulario-pregunta input[type=text] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	border-radius: 5px;
+	font-size: 16px;
+  }
+
+/* Estilos responsive */
+@media only screen and (max-width: 768px) {
+	/* Estilos para el video */
+	video {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  min-width: 100%;
+	  min-height: 100%;
+	  width: auto;
+	  height: auto;
+	  transform: none;
+	}
+  
+	/* Estilos para el texto del juego */
+	.texto-juego {
+	  font-size: 32px;
+	  margin-top: 10px;
+	}
+  
+	/* Estilos para los formularios */
+	.formulario {
+	  margin-top: 30px;
+	}
+  
+	.formulario input[type=text] {
+	  font-size: 14px;
+	}
+  
+	.btn {
+	  padding: 8px 16px;
+	  font-size: 14px;
+	}
+  
+	/* Estilos para la ventana modal */
+	.modal-content {
+	  margin: 20% auto;
+	  padding: 10px;
+	  font-size: 24px;
+	  max-width: 80%;
+	}
+  
+	/* Estilos para el botón de cierre de la ventana modal */
+	.close {
+	  font-size: 24px;
+	}
+  
+	/* Estilos para el formulario de las preguntas */
+	.formulario-pregunta {
+	  height: auto;
+	}
+}  

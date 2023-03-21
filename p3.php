@@ -9,11 +9,13 @@ if (!isset($_SESSION['loginOK'])) {
 
 // Definimos la pregunta y las opciones de respuesta
 $pregunta = "¿Cuál es el nombre del personaje principal en el videojuego 'The Legend of Zelda'?";
-$opcionA = "Mario";
-$opcionB = "Sonic";
-$opcionC = "Link";
-$opcionD = "Kirby";
-$respuestaCorrecta = "C";
+$opciones = array(
+    'A' => 'Mario',
+    'B' => 'Sonic',
+    'C' => 'Link',
+    'D' => 'Kirby'
+);
+$respuestaCorrecta = 'C';
 
 // Comprobamos si el usuario ha enviado una respuesta
 if (isset($_POST['respuesta'])) {
@@ -34,23 +36,27 @@ if (isset($_POST['respuesta'])) {
 <head>
     <meta charset="UTF-8">
     <title>Pregunta sobre videojuegos</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
 <div class="container">
-<h1>Pregunta sobre videojuegos</h1>
-<form method="post">
-    <p><?php echo $pregunta; ?></p>
-    <input type="radio" name="respuesta" value="A" id="opcionA">
-    <label for="opcionA"><?php echo $opcionA; ?></label><br>
-    <input type="radio" name="respuesta" value="B" id="opcionB">
-    <label for="opcionB"><?php echo $opcionB; ?></label><br>
-    <input type="radio" name="respuesta" value="C" id="opcionC">
-    <label for="opcionC"><?php echo $opcionC; ?></label><br>
-    <input type="radio" name="respuesta" value="D" id="opcionD">
-    <label for="opcionD"><?php echo $opcionD; ?></label><br>
-    <button type="submit">Enviar respuesta</button>
-</form>
+    <!-- <div class="texto"> -->
+        <h1>Ahora estamos atrapados dentro de un juego,</h1>
+        <h1>parece el 'The Legend of Zelda',</h1>
+        <h1>responde la pregunta para poder salir</h1>
+        </br>
+        <form method="post">
+            <p><?php echo $pregunta; ?></p>
+            </br>
+            </br>
+            <?php foreach ($opciones as $clave => $opcion) { ?>
+                <input type="radio" name="respuesta" value="<?php echo $clave; ?>" id="opcion<?php echo $clave; ?>">
+                <label for="opcion<?php echo $clave; ?>"><?php echo $opcion; ?></label><br>
+            <?php } ?>
+            </br>
+            <button type="submit" id="submit">Enviar respuesta</button>
+        </form>
+    </div>
 </div>
 <?php
 // Si el usuario ha enviado una respuesta incorrecta, mostramos la pista
@@ -58,12 +64,12 @@ if (isset($pista)) {
     echo "<p>Pista: $pista</p>";
 }
 ?>
-<script src="script.js"></script>
+<script src="./js/script.js"></script>
 </body>
 </html>
 <style type="text/css">
 	body {
-		background-image: url('./zelda.jpg');
+		background-image: url('./img/zelda.jpg');
 		background-size: cover;
 	}
 </style>

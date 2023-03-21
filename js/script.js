@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
   const phrases = [
-    "Ho no, parece que estamos encerrados.",
+    "Oh no, parece que estamos encerrados.",
     "Tendriamos que buscar una manera de salir.",
     "Como te llamas?"
   ];

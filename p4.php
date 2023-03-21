@@ -33,14 +33,16 @@ if (isset($_POST['respuesta'])) {
 <head>
     <meta charset="UTF-8">
     <title>Pregunta sobre programación</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
 <div class="container">
     <div class='texto'>
-        <h1>Pregunta sobre programación</h1>
+        <h1>¿Ahora un visual? ¡Esto debe ser una broma!</h1>
+        </br>
         <form method="post">
             <p><?php echo $pregunta; ?></p>
+            </br>
             <input type="radio" name="respuesta" value="A" id="opcionA">
             <label for="opcionA"><?php echo $opcionA; ?></label><br>
             <input type="radio" name="respuesta" value="B" id="opcionB">
@@ -49,6 +51,7 @@ if (isset($_POST['respuesta'])) {
             <label for="opcionC"><?php echo $opcionC; ?></label><br>
             <input type="radio" name="respuesta" value="D" id="opcionD">
             <label for="opcionD"><?php echo $opcionD; ?></label><br>
+            </br>   
             <button type="submit">Enviar respuesta</button>
         </form>
     </div>
@@ -60,11 +63,11 @@ if (isset($pista)) {
 }
 ?>
 </body>
-<script src="script.js"></script>
+<script src="./js/script.js"></script>
 </html>
 <style type="text/css">
 	body {
-		background-image: url('./cmd.jpg');
+		background-image: url('./img/visual.jpg');
 		background-size: cover;
 	}
 </style>
