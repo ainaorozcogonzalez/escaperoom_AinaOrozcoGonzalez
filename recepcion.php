@@ -20,6 +20,5 @@
             header("location: index.php?error=1");
         }
     ?>
-    <p></p>
 </body>
 </html>
