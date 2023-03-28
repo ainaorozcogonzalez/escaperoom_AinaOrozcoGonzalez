@@ -6,21 +6,18 @@ if (!isset($_SESSION['loginOK'])) {
   header("Location: index.php?error=2");
   exit();
 }
-
-// Verifica si la palabra secreta ha sido ingresada correctamente
-if (isset($_POST['secret-word']) && $_POST['secret-word'] === 'cache') {
-  // Si la palabra secreta es correcta, redirige a la siguiente página
-  header("Location: p2.php");
-  exit();
-}
-
 $errorMsg = '';
+
 // Comprueba si se ha enviado un formulario y si la palabra secreta no es correcta
 if (isset($_POST['secret-word']) && $_POST['secret-word'] !== 'cache') {
   $errorMsg = 'La palabra secreta es incorrecta';
+} elseif (isset($_POST['secret-word']) && $_POST['secret-word'] === 'cache') {
+  // Si la palabra secreta es correcta, marca la sesión como respondida correctamente
+  $_SESSION['answered'] = true;
+  header("Location: p2.php");
+  exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>

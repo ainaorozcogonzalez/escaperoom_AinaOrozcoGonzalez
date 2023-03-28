@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 // Verificamos si el usuario ha iniciado sesión
 if (!isset($_SESSION['loginOK'])) {
     header("location: index.php?error=2");

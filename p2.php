@@ -1,16 +1,16 @@
 <?php
 session_start();
 
+// Redirige si el usuario no ha iniciado sesión
+if (!isset($_SESSION['loginOK'])) {
+  header("Location: index.php?error=2");
+  exit();
+}
+
 define('ENCRYPTED_FOLDER_NAME', 'b3JkZW5hZG9y');
 
 function decryptFolderName($encryptedName) {
     return strtr(base64_decode($encryptedName), '50io1249', 'aeiost');
-}
-
-// Redirigir al usuario a la página de inicio de sesión si no ha iniciado sesión
-if (!isset($_SESSION['loginOK'])) {
-    header("Location: index.php?error=2");
-    exit();
 }
 
 // Si se envió el formulario, comprobar el nombre de carpeta
@@ -21,6 +21,7 @@ if (isset($_POST['folder-name'])) {
         $decrypted_name = decryptFolderName(ENCRYPTED_FOLDER_NAME);
         if ($folder_name == $decrypted_name) {
             // Si el nombre de carpeta es correcto, redirigir al usuario a la siguiente página
+            $_SESSION['p2_completed'] = true;
             header("Location: p3.php");
             exit();
         } else {
@@ -36,7 +37,6 @@ if (isset($_POST['folder-name'])) {
 if (isset($_SESSION['intentos']) && $_SESSION['intentos'] > 1) {
     $pista = "El nombre de la carpeta está codificado en base64 y utiliza un cifrado por sustitución";
 }
-
 ?>
 
 <!DOCTYPE html>
